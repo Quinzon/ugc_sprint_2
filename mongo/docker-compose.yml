@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    ports:
+      - "27017:27017"
+
+  testing-mongo:
+    image: python:3.11-slim
+    container_name: testing-mongo
+    depends_on:
+      - mongodb
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: ["sh", "-c", "pip install -r requirements.txt && python script.py"]
