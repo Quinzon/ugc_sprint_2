@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: test_db
+    ports:
+      - "5432:5432"
+
+  testing-postgres:
+    image: python:3.11-slim
+    container_name: testing-postgres
+    depends_on:
+      - postgres
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: ["sh", "-c", "pip install -r requirements.txt && python script.py"]
