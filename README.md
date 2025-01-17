@@ -1,3 +1,5 @@
-# Проектная работа 9 спринта
+Ссылка на этот репозиторий с исследованием:  
+https://github.com/Quinzon/ugc_sprint_2    
 
-Задания на спринт вы найдёте внутри тем.
+Ссылка на репозиторий проекта:  
+https://github.com/Quinzon/Yandex_practicum/pull/91
